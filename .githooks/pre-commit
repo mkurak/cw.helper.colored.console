@@ -1,0 +1,24 @@
+#!/usr/bin/env bash
+
+set -euo pipefail
+
+run_step() {
+    local description="$1"
+    shift
+    printf '\n[cw-helper-colored-console] %s...\n' "$description"
+    if ! "$@"; then
+        printf '\n[cw-helper-colored-console] ERROR: %s failed (command: %s)\n' "$description" "$*" >&2
+        exit 1
+    fi
+}
+
+run_step "Formatting staged files" npm run format
+
+# Stage tüm değişiklikleri (yeni dosyalar dahil) yeniden ekle
+git add --all
+
+run_step "Running lint checks" npm run lint
+run_step "Running coverage gate (>= 90%)" npm run test:coverage
+
+printf '\n[cw-helper-colored-console] Pre-commit checks passed.\n'
+exit 0
