@@ -1,6 +1,6 @@
 {
   "name": "cw.helper.colored.console",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "main": "dist/index.js",
   "scripts": {
     "build": "tsc --project tsconfig.json",
@@ -10,7 +10,8 @@
     "lint": "eslint \"src/**/*.ts\" \"tests/**/*.ts\"",
     "lint:fix": "npm run lint -- --fix",
     "format": "prettier \"src/**/*.ts\" \"tests/**/*.ts\" --write",
-    "format:check": "prettier \"src/**/*.ts\" \"tests/**/*.ts\" --check"
+    "format:check": "prettier \"src/**/*.ts\" \"tests/**/*.ts\" --check",
+    "hooks:install": "node scripts/setup-hooks.js"
   },
   "keywords": [],
   "author": "",
