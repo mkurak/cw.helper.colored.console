@@ -1,26 +1,48 @@
 {
   "name": "cw.helper.colored.console",
-  "version": "0.1.1",
-  "main": "dist/index.js",
+  "version": "1.0.0",
+  "type": "module",
+  "main": "./dist/index.js",
+  "exports": {
+    ".": {
+      "types": "./dist/index.d.ts",
+      "import": "./dist/index.js"
+    },
+    "./package.json": "./package.json"
+  },
+  "publishConfig": {
+    "access": "public",
+    "provenance": true
+  },
   "scripts": {
-    "build": "tsc --project tsconfig.json",
-    "test": "jest",
-    "test:watch": "jest --watch",
-    "test:coverage": "jest --coverage",
+    "build": "tsc -p tsconfig.build.json",
+    "test": "node --experimental-vm-modules ./node_modules/jest/bin/jest.js",
+    "test:watch": "node --experimental-vm-modules ./node_modules/jest/bin/jest.js --watch",
+    "test:coverage": "node --experimental-vm-modules ./node_modules/jest/bin/jest.js --coverage",
     "lint": "eslint \"src/**/*.ts\" \"tests/**/*.ts\"",
     "lint:fix": "npm run lint -- --fix",
     "format": "prettier \"src/**/*.ts\" \"tests/**/*.ts\" --write",
     "format:check": "prettier \"src/**/*.ts\" \"tests/**/*.ts\" --check",
-    "hooks:install": "node scripts/setup-hooks.js"
+    "prepare": "npm run build && npm run hooks:install",
+    "hooks:install": "node scripts/setup-hooks.cjs",
+    "prepublishOnly": "npm run build && node scripts/smoke.mjs",
+    "release": "node scripts/release.mjs"
   },
-  "keywords": [],
-  "author": "",
-  "license": "ISC",
+  "keywords": [
+    "ansi",
+    "console",
+    "logging",
+    "helper",
+    "cw",
+    "typescript"
+  ],
+  "author": "Mert Kurak",
+  "license": "MIT",
   "description": "Minimal ANSI colored console logging helpers for cw projects.",
   "devDependencies": {
     "@eslint/js": "^9.35.0",
     "@types/jest": "^30.0.0",
-    "@types/node": "^24.5.1",
+    "@types/node": "^24.5.2",
     "@typescript-eslint/eslint-plugin": "^8.44.0",
     "@typescript-eslint/parser": "^8.44.0",
     "eslint": "^9.35.0",
@@ -28,13 +50,27 @@
     "eslint-plugin-prettier": "^5.5.4",
     "jest": "^30.1.3",
     "prettier": "^3.6.2",
-    "ts-jest": "^29.4.2",
+    "ts-jest": "^29.4.3",
     "ts-node": "^10.9.2",
     "typescript": "^5.9.2",
     "typescript-eslint": "^8.44.0"
   },
-  "types": "dist/index.d.ts",
+  "types": "./dist/index.d.ts",
   "files": [
-    "dist"
-  ]
+    "dist",
+    "README.md",
+    "LICENSE"
+  ],
+  "sideEffects": false,
+  "engines": {
+    "node": ">=18"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/mkurak/cw.helper.colored.console.git"
+  },
+  "bugs": {
+    "url": "https://github.com/mkurak/cw.helper.colored.console/issues"
+  },
+  "homepage": "https://github.com/mkurak/cw.helper.colored.console"
 }

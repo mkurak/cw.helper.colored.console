@@ -7,7 +7,7 @@ export type {
     ColoredConsoleTheme,
     LogLevel,
     ConsoleWriter
-} from './colorConsole';
+} from './colorConsole.js';
 export {
     createColoredConsole,
     ColoredConsole,
@@ -15,4 +15,4 @@ export {
     applyStyle,
     detectColorSupport,
     ansi
-} from './colorConsole';
+} from './colorConsole.js';

@@ -1,3 +1,4 @@
+import { jest } from '@jest/globals';
 import { createColoredConsole } from '../src/colorConsole';
 
 const ESC = String.fromCharCode(27);
@@ -19,7 +20,7 @@ describe('ColoredConsole', () => {
         logger.info('Server started', { port: 3000 });
 
         expect(writer.log).toHaveBeenCalledTimes(1);
-        const [label, message, payload] = writer.log.mock.calls[0];
+        const [label, message, payload] = writer.log.mock.calls[0] as [string, unknown, unknown];
         expect(label).toContain('[api]');
         expect(label).toContain('INFO');
         expect(message).toBe('Server started');
@@ -34,7 +35,7 @@ describe('ColoredConsole', () => {
 
         logger.warn('Disk space low');
 
-        const [label] = writer.warn.mock.calls[0];
+        const [label] = writer.warn.mock.calls[0] as [string];
         expect(label.includes('\u001b[')).toBe(false);
         expect(label).toContain('WARN');
     });
@@ -51,7 +52,7 @@ describe('ColoredConsole', () => {
 
         logger.success('Completed');
 
-        const [label] = writer.log.mock.calls[0];
+        const [label] = writer.log.mock.calls[0] as [string];
         expect(label).toContain('\u001b[4m');
         expect(label).toContain('\u001b[94m');
     });
@@ -84,7 +85,7 @@ describe('ColoredConsole', () => {
         const logger = createColoredConsole({ enabled: true, writer });
 
         logger.info('No name');
-        const [label] = writer.log.mock.calls[0];
+        const [label] = writer.log.mock.calls[0] as [string];
         const plain = stripAnsi(label);
         expect(plain.startsWith('INFO')).toBe(true);
         expect(plain.includes('[')).toBe(false);
@@ -98,7 +99,7 @@ describe('ColoredConsole', () => {
         const logger = createColoredConsole({ writer });
         logger.info('Auto colors');
 
-        const [label] = writer.log.mock.calls[0];
+        const [label] = writer.log.mock.calls[0] as [string];
         expect(label.includes(String.fromCharCode(27))).toBe(true);
 
         if (previous === undefined) {

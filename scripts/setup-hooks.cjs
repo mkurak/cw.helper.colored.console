@@ -22,5 +22,4 @@ try {
 } catch (error) {
     // eslint-disable-next-line no-console
     console.warn('[cw-helper-colored-console] Failed to configure git hooks path:', error.message);
-    process.exit(0);
 }
