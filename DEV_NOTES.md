@@ -16,6 +16,7 @@
   - `ConsoleWriter` describes the writer contract; missing level-specific methods fall back to `log`.
   - `createColoredConsole` wraps the class, while `colorize`/`applyStyle` provide standalone styling helpers.
 - `src/index.ts` re-exports helpers and types using `.js` extensions to preserve runtime ESM compatibility.
+- `src/themes/cw.ts` provides the shared cw theme (`cwTheme`) and `createCwLogger` factory for downstream packages.
 
 ## Tooling
 - ESM-only distribution (`package.json` sets `type: "module"`; exports map exposes `import` + `types`).

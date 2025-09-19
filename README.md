@@ -79,11 +79,13 @@ Example terminal output (colors enabled):
 ```ts
 import {
     createColoredConsole,
+    createCwLogger,
     ColoredConsole,
     colorize,
     applyStyle,
     detectColorSupport,
     ansi,
+    cwTheme,
     type ColoredConsoleOptions,
     type ColoredConsoleTheme,
     type StyleOptions,
@@ -93,6 +95,12 @@ import {
     type ConsoleWriter,
     type LogLevel
 } from 'cw.helper.colored.console';
+```
+
+Subpath exports expose preset themes:
+
+```ts
+import { createCwLogger, cwTheme } from 'cw.helper.colored.console/themes/cw';
 ```
 
 ## API Reference
@@ -116,6 +124,12 @@ Class that wraps console-style logging with ANSI-styled labels.
 | `log(level, message, ...args)` | Generic entry point when you need dynamic levels. |
 
 Signature mirrors native `console` to keep log pipelines familiar.
+
+### createCwLogger
+```ts
+function createCwLogger(options?: ColoredConsoleOptions): ColoredConsole;
+```
+Returns a logger preconfigured with the shared **cw** theme (cyan info, yellow warn, etc.). Provide overrides such as `name`, `writer`, or `enabled` through `options`.
 
 ### colorize
 ```ts

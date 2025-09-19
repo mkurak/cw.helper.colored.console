@@ -6,4 +6,9 @@ describe('package entry point', () => {
         expect(typeof api.colorize).toBe('function');
         expect(api.ansi.reset).toBe('\u001b[0m');
     });
+
+    it('exposes cw theme presets', () => {
+        expect(api.cwTheme.warn?.color).toBe('yellow');
+        expect(typeof api.createCwLogger).toBe('function');
+    });
 });

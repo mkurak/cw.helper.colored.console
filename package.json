@@ -8,6 +8,10 @@
       "types": "./dist/index.d.ts",
       "import": "./dist/index.js"
     },
+    "./themes/cw": {
+      "types": "./dist/themes/cw.d.ts",
+      "import": "./dist/themes/cw.js"
+    },
     "./package.json": "./package.json"
   },
   "publishConfig": {

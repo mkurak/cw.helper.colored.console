@@ -16,3 +16,4 @@ export {
     detectColorSupport,
     ansi
 } from './colorConsole.js';
+export { cwTheme, createCwLogger } from './themes/cw.js';
