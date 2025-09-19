@@ -57,6 +57,14 @@ logger.warn('Disk usage high');
 logger.error('Unhandled exception', new Error('Database down'));
 ```
 
+Example terminal output (colors enabled):
+
+```
+[api] INFO Server started { port: 3000 }
+[api] WARN Disk usage high
+[api] ERROR Unhandled exception Error: Database down
+```
+
 ## Why Another Colored Console Helper?
 - Focused on ergonomic logs for Node backends.
 - Ships sensible defaults while staying tiny.
@@ -207,6 +215,7 @@ When a writer method is missing (`warn`, `debug`, ...), it automatically falls b
 ## Color Support Detection
 - `NO_COLOR` disables styling globally (respects community convention).
 - `FORCE_COLOR=1` forces styling (even when piping output).
+- If neither variable is set, `detectColorSupport()` falls back to checking `process.stdout.isTTY`.
 - `ColoredConsoleOptions.enabled` overrides detection entirely.
 - Tests can rely on `@jest/globals` and set `process.env.FORCE_COLOR` to mock colored output (see `/tests/logger.test.ts`).
 

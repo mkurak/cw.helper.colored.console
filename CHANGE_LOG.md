@@ -1,5 +1,11 @@
 # Changelog
 
+## [1.2.1] - 2025-09-19
+### Added
+- Expanded `ansi` helper exposing bold/dim/italic/underline plus foreground/background maps for manual styling needs.
+- README quick-start now illustrates typical terminal output and clarifies color detection order.
+- Additional tests covering the `ansi` export surface.
+
 ## [1.2.0] - 2025-09-19
 ### Added
 - Comprehensive README with installation, API reference, theming guidance, tooling overview, and release workflow.

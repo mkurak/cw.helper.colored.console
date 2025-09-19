@@ -216,5 +216,11 @@ export function colorize(text: string, style: StyleOptions, options?: ColorizeOp
 }
 
 export const ansi = {
-    reset: RESET
-};
+    reset: RESET,
+    bold: STYLE_CODES.bold,
+    dim: STYLE_CODES.dim,
+    italic: STYLE_CODES.italic,
+    underline: STYLE_CODES.underline,
+    foreground: { ...FOREGROUND_CODES },
+    background: { ...BACKGROUND_CODES }
+} as const;

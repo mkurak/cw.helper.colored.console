@@ -64,6 +64,7 @@
 - Repository: `git+https://github.com/mkurak/cw.helper.colored.console.git`.
 
 ## Testing Notes
+- `tests/ansi.test.ts` guards the raw ANSI helper exports.
 - `tests/logger.test.ts` spies on writer behaviour with `@jest/globals`.
 - `tests/detect.test.ts` covers env-based color detection.
 - `tests/colorize.test.ts` validates styling combinations with enabled/disabled flags.
@@ -71,6 +72,7 @@
 
 ## README Highlights
 - Installation, quick start, API reference, theming, custom writers, usage patterns, tooling scripts, release workflow, contributing guidelines, license.
+- Quick start now includes an example console transcript to showcase formatted labels.
 
 ## Future Ideas
 - Expand documentation with ANSI code tables or ready-made theme presets.
