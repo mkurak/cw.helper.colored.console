@@ -53,6 +53,7 @@
   2. `DEV_NOTES.md` – geliştirici notları, kurallar, workflow değişiklikleri.
   3. `CHANGE_LOG.md` – kullanıcıya dönük değişiklik listesi. Yeni sürüm notu ekle.
 - **Release Prosesi**: Versiyon bump + changelog + git tag. `npm run release -- <type>` komutunu tercih et (kod temiz olmalı).
+  - 2025-09-19 notu: `1.1.0` etiketi yanlışlıkla `minor` bump ile üretildi (içerik `1.0.0` ile aynı). Komutu çalıştırmadan önce bump türünü iki kez kontrol et.
 - **Yayınlama**: `npm publish` öncesi `prepublishOnly` otomatik smoke test çalıştırır.
 - **Conventional Commits**: `chore: release vX.Y.Z`, `feat:`, `fix:` vb. formatları koru.
 

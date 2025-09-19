@@ -1,5 +1,9 @@
 # Changelog
 
+## [1.1.0] - 2025-09-19
+### Note
+- Version bump accidentally published as a **minor** release while preparing the initial drop. No code or documentation changes compared to `1.0.0`; use either tag interchangeably. Future work should continue from `1.1.x`.
+
 ## [1.0.0] - 2025-09-19
 ### Added
 - Initial public release of `cw.helper.colored.console` with ESM-only distribution and typed API surface.
@@ -14,4 +18,3 @@
 - TypeScript build pipeline (`tsconfig.build.json`) emitting declarations/maps under `dist/`.
 - Release automation (`scripts/release.mjs`) handling semver bumps, commits, and tag pushes.
 - Smoke test script ensuring published bundle exports (`scripts/smoke.mjs`).
-
