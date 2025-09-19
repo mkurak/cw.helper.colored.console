@@ -1,5 +1,14 @@
 # Changelog
 
+## [1.2.0] - 2025-09-19
+### Added
+- Comprehensive README with installation, API reference, theming guidance, tooling overview, and release workflow.
+- `DEV_NOTES.md` knowledge base capturing automation rules, release process, and testing expectations for future sessions.
+- GitHub Actions workflow (`.github/workflows/publish.yml`) enabling provenance-backed npm publishing.
+
+### Changed
+- Converted internal documentation to English for consistency across the workspace.
+
 ## [1.1.0] - 2025-09-19
 ### Note
 - Version bump accidentally published as a **minor** release while preparing the initial drop. No code or documentation changes compared to `1.0.0`; use either tag interchangeably. Future work should continue from `1.1.x`.
