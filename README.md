@@ -287,7 +287,7 @@ This project mirrors the automation used across the **cw** packages:
 | `npm run test:coverage` | Same tests with coverage thresholds (90/90/90/80). |
 | `npm run lint` | Run ESLint over `src/` and `tests/`. |
 | `npm run format` | Format sources with Prettier (`tabWidth: 4`). |
-| `npm run release` | Version bump + `git push` + tags; see [Release Workflow](#release-workflow). |
+| `npm version <type>` | Version bump + commit/tag (follow with `git push --follow-tags`). |
 | `npm run hooks:install` | Set `.githooks` as the repo hooks directory. |
 | `npm run prepare` | Build then install hooks (runs automatically on install). |
 | `npm run prepublishOnly` | Build and run smoke tests right before `npm publish`. |
@@ -298,13 +298,16 @@ Pre-commit hooks trigger formatting, linting, and coverage gates to keep quality
 1. Decide the semver increment (`patch`, `minor`, `major`, etc.).
 2. Run the helper:
    ```bash
-   npm run release -- patch "chore: release v%s"
+   npm version patch --message "chore: release v%s"
    ```
-   - Calls `npm version` with the chosen bump.
-   - Commits with a conventional message (substitute `%s` automatically).
-   - Pushes commits and tags to origin.
-3. CI or local publish can now run `npm publish --access public` (the package is pre-configured with provenance).
-4. `prepublishOnly` builds the package and executes `scripts/smoke.mjs`, ensuring public exports stay intact.
+   - Adjust the type/message as needed (e.g., `minor`, custom commit message).
+   - `npm version` creates the commit and tag locally.
+3. Push everything upstream:
+   ```bash
+   git push --follow-tags
+   ```
+4. CI or local publish can now run `npm publish --access public` (the package is pre-configured with provenance).
+5. `npm run prepublishOnly` builds the package and executes `scripts/smoke.mjs`, ensuring public exports stay intact.
 
 ## Contributing
 - Clone the repository and install dependencies (`npm install`).

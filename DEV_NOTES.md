@@ -38,15 +38,10 @@
 - `npm run lint`, `npm run lint:fix`, `npm run format`, `npm run format:check`.
 - `npm run prepare` — build + hook install (fires on `npm install`).
 - `npm run prepublishOnly` — build + smoke test before publish.
-- `npm run release` — wraps `npm version`, committing and pushing tags.
+- `npm version <type>` — bumps the version and creates a commit/tag (run `git push --follow-tags` afterwards).
 
 ### Smoke Test (`scripts/smoke.mjs`)
 - Imports the published bundle and asserts `createColoredConsole` / `applyStyle` exist before publishing.
-
-### Release Script (`scripts/release.mjs`)
-- Accepts semver bump arguments (`major`, `minor`, `patch`, `pre*`) plus optional commit message fragments.
-- Defaults to `chore: release v%s`; substitutes `%s` automatically when missing.
-- Executes `npm version`, then pushes commits and tags.
 
 ## Versioning & Documentation Rules
 - Follow semver: `patch` for fixes, `minor` for additive but backward-compatible changes, `major` for breaking updates.
@@ -54,8 +49,8 @@
   1. Update `README.md` for user-facing docs.
   2. Update `DEV_NOTES.md` with developer-facing context.
   3. Update `CHANGE_LOG.md` with user-visible highlights.
-- Release sequence: ensure clean git state → `npm run release -- <type>`.
-  - 2025-09-19 note: `1.1.0` was published accidentally as a minor bump but matches `1.0.0`; double-check the requested bump before running the release helper.
+- Release sequence: ensure clean git state → `npm version <type>` → `git push --follow-tags`.
+  - 2025-09-19 note: `1.1.0` was published accidentally as a minor bump but matches `1.0.0`; double-check the requested bump before tagging.
 - `prepublishOnly` re-builds and runs the smoke test ahead of `npm publish`.
 - Follow Conventional Commits (e.g., `feat:` / `fix:` / `chore: release vX.Y.Z`).
 

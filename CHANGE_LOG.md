@@ -1,5 +1,9 @@
 # Changelog
 
+## [1.2.3] - 2025-09-21
+### Changed
+- Dropped the npm release helper script and updated docs to route releases through `npm version <type>` + `git push --follow-tags`.
+
 ## [1.2.1] - 2025-09-19
 ### Added
 - Expanded `ansi` helper exposing bold/dim/italic/underline plus foreground/background maps for manual styling needs.
@@ -31,5 +35,5 @@
 ### Tooling
 - ESLint (flat config) + Prettier formatting pipeline with pre-commit hook enforcing format → lint → coverage.
 - TypeScript build pipeline (`tsconfig.build.json`) emitting declarations/maps under `dist/`.
-- Release automation (`scripts/release.mjs`) handling semver bumps, commits, and tag pushes.
+- Release automation (now documented via `npm version <type>` + `git push --follow-tags`) handling semver bumps, commits, and tag pushes.
 - Smoke test script ensuring published bundle exports (`scripts/smoke.mjs`).
