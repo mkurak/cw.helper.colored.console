@@ -1,5 +1,9 @@
 # Changelog
 
+## [1.2.6] - 2025-09-21
+### Changed
+- Removed the post-commit tag automation; releases must now push tags manually.
+
 ## [1.2.5] - 2025-09-21
 ### Added
 - Added a post-commit hook to auto-tag `package.json` version bumps on the default branch.
