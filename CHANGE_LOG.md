@@ -1,5 +1,9 @@
 # Changelog
 
+## [1.2.5] - 2025-09-21
+### Added
+- Added a post-commit hook to auto-tag `package.json` version bumps on the default branch.
+
 ## [1.2.4] - 2025-09-21
 ### Added
 - Expanded the smoke test to exercise `colorize` and logger creation, ensuring key exports stay intact.

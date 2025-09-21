@@ -12,13 +12,13 @@ run_step() {
     fi
 }
 
-run_step "Formatting staged files" npm run format
+run_step "Formatting sources" npm run format
 
 # Stage tüm değişiklikleri (yeni dosyalar dahil) yeniden ekle
 git add --all
 
 run_step "Running lint checks" npm run lint
-run_step "Running coverage gate (>= 90%)" npm run test:coverage
+run_step "Running coverage checks" npm run test:coverage
 
 printf '\n[cw-helper-colored-console] Pre-commit checks passed.\n'
 exit 0
