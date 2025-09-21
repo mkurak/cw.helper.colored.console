@@ -1,5 +1,11 @@
 # Changelog
 
+## [1.2.4] - 2025-09-21
+### Added
+- Expanded the smoke test to exercise `colorize` and logger creation, ensuring key exports stay intact.
+### Changed
+- Documentation clarifies that releases run via `npm version <type>` followed by `git push --follow-tags`.
+
 ## [1.2.3] - 2025-09-21
 ### Changed
 - Dropped the npm release helper script and updated docs to route releases through `npm version <type>` + `git push --follow-tags`.
